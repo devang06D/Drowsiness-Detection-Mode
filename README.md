@@ -36,3 +36,88 @@ Drowsiness_Detection/
 ├── drowsiness_detector.py           # Main detection + GUI application
 ├── requirements.txt                 # List of dependencies
 └── README.md
+
+
+'''
+
+## How to Run the Project
+
+### 1. Setup Environment
+
+```bash
+# Create and activate virtual environment (if not already done)
+python -m venv sleepenv
+sleepenv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+---
+
+### 2. Train the Model (Optional)
+
+If you want to retrain the model:
+
+```bash
+python train.py
+```
+
+The trained model will be saved as `models/drowsiness_model.h5`
+
+---
+
+### 3. Run the Drowsiness Detector
+
+```bash
+python drowsiness_detector.py
+```
+
+A GUI window will open with three options:
+
+- Upload Image  
+- Upload Video  
+- Start Webcam  
+
+---
+
+## Model Details
+
+- Architecture: Simple CNN (3 Conv + MaxPooling layers + Dense layers)  
+- Input Size: 64x64 RGB images  
+- Dataset: MRL Eyes Dataset (Open vs Closed eyes)  
+- Training Accuracy: ~92-95% on test set (depends on training)  
+- Framework: TensorFlow 2.15 + Keras  
+
+Age Prediction: Uses DeepFace library for realistic age estimation from detected faces.
+
+---
+
+
+
+## How to Add Your Own Output Images (For Submission)
+
+### Recommended Way:
+
+- Create a new folder in your project: `sample_outputs/`  
+- Run the detector and test with good images  
+- Take screenshots of the output window (including red/green boxes and pop-up if possible)  
+- Save the screenshots as:  
+  - `drowsy_example.jpg`  
+  - `awake_example.jpg`  
+  - `multiple_people.jpg` (optional)  
+
+- Update the README paths accordingly  
+
+Tip: Use Snipping Tool or Windows + Shift + S to capture clean screenshots of the result window.
+
+---
+
+## Technologies Used
+
+- Python 3.11  
+- TensorFlow 2.15 + Keras  
+- OpenCV  
+- DeepFace (for age estimation)  
+- Tkinter (GUI)  
+- Haar Cascade (face detection)  
